@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Scroll View Carousel</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background: transparent;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #000;
+            width: 100%;
+            height: 100%;
+            min-height: 0;
+            min-width: 0;
+        }
+        .carousel-root {
+            width: 100%;
+            height: 100%;
+            min-height: 0;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            overflow: hidden;
+        }
+        .swiper-container {
+            width: 100%;
+            min-height: 0;
+            min-width: 0;
+            flex: 1 1 0%;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+        }
+        .swiper-wrapper {
+            min-height: 0;
+            min-width: 0;
+            overflow: visible;
+            display: flex;
+            flex-direction: row;
+        }
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 80%;
+            flex-shrink: 0;
+            border-radius: 18px;
+            overflow: hidden;
+            aspect-ratio: 16/9;
+            min-height: 120px;
+            min-width: 0;
+        }
+        .swiper-slide video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: inherit;
+        }
+        .swiper-controls {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            margin-top: 0;
+            margin-bottom: 0;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+        .swiper-pagination {
+            position: static;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin: 0;
+            flex: 1 1 auto;
+        }
+        .swiper-navigation-wrapper {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 20px;
+        }
+        .swiper-button-prev,
+        .swiper-button-next {
+            position: static;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 10px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 2px solid #1f1f1f;
+            background: transparent;
+            box-shadow: none;
+            transition: background 0.2s, border-color 0.2s;
+        }
+        .swiper-button-prev::after,
+        .swiper-button-next::after {
+            content: '';
+        }
+        .swiper-button-prev svg,
+        .swiper-button-next svg {
+            width: 20px;
+            height: 20px;
+            display: block;
+        }
+        .swiper-button-prev svg path,
+        .swiper-button-next svg path {
+            stroke: #1f1f1f;
+            transition: stroke 0.2s;
+        }
+        .swiper-button-prev:hover,
+        .swiper-button-next:hover,
+        .swiper-button-prev:active,
+        .swiper-button-next:active {
+            background: #1f1f1f;
+            border-color: #1f1f1f;
+        }
+        .swiper-button-prev:hover svg path,
+        .swiper-button-next:hover svg path,
+        .swiper-button-prev:active svg path,
+        .swiper-button-next:active svg path {
+            stroke: #fff;
+        }
+        /* Hide scrollbars for all browsers */
+        .carousel-root, .swiper-container, .swiper-wrapper, .swiper-slide {
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE 10+ */
+        }
+        .carousel-root::-webkit-scrollbar,
+        .swiper-container::-webkit-scrollbar,
+        .swiper-wrapper::-webkit-scrollbar,
+        .swiper-slide::-webkit-scrollbar {
+            display: none;
+            width: 0;
+            height: 0;
+            background: transparent;
+        }
+        .swiper-pagination-bullet {
+            background: #1f1f1f !important;
+            width: 4px;
+            height: 4px;
+            opacity: 0.3;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: #1f1f1f !important;
+            width: 4px;
+            height: 4px;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="carousel-root">
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <video autoplay="true" loop="" playsinline="true" muted="" >
+                    <source src="https://friendforaday.blob.core.windows.net/media/video_13_processed-00.04.42.301-00.04.48.116.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="swiper-slide">
+                <video autoplay="true" loop="" playsinline="true" muted="" >
+                    <source src="https://friendforaday.blob.core.windows.net/media/test.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="swiper-slide">
+                <video autoplay="true" loop="" playsinline="true" muted="" >
+                    <source src="https://friendforaday.blob.core.windows.net/media/basketball_10_min_hand_brake-00.01.05.448-00.01.17.505.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="swiper-slide">
+                <video autoplay="true" loop="" playsinline="true" muted="" >
+                    <source src="https://friendforaday.blob.core.windows.net/media/video_13_processed-00.04.42.301-00.04.48.116.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="swiper-slide">
+                <video autoplay="true" loop="" playsinline="true" muted="" >
+                    <source src="https://friendforaday.blob.core.windows.net/media/test.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="swiper-slide">
+                <video autoplay="true" loop="" playsinline="true" muted="" >
+                    <source src="https://friendforaday.blob.core.windows.net/media/basketball_10_min_hand_brake-00.01.05.448-00.01.17.505.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+      </div>
+      <div class="swiper-controls">
+        <div class="swiper-pagination"></div>
+        <!-- <div class="swiper-navigation-wrapper">
+            <div class="swiper-button-prev">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="12" fill="none"/><path d="M15 6L9 12L15 18" stroke="#1f1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="swiper-button-next">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="12" fill="none"/><path d="M9 6L15 12L9 18" stroke="#1f1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+        </div> -->
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            requestAnimationFrame(function () {
+                var swiper = new Swiper('.swiper-container', {
+                    loop: true,
+                    slidesPerView: 'auto',
+                    centeredSlides: true,
+                    spaceBetween: 10,
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true,
+                    },
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                });
+            });
+        });
+    </script>
+</body>
+</html> 
